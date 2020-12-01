@@ -1,0 +1,20 @@
+#table1{
+
+    border: solid black 1px;
+    color:black;
+    background-color: red;
+    width: 100%;
+
+}
+
+tr, td{
+
+    width: auto;
+
+}
+
+td {
+
+    font-size: 175%;
+
+}
