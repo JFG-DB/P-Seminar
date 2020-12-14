@@ -7,19 +7,18 @@
         <title>Pupils</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/pupils-style.css">
-        <!--<script type="text/javascript" src="js/script.js"></script>-->
+        <script type="text/javascript" src="js/script.js"></script>
 
     </head>
 
-    <body onload="start()">
+    <body onload="startPupils()">
 
         <dialog open id="dialog">
             <h2>Anmeldung</h2>
             <form method="post" action="javascript:showTeam()">
-               <label for="tnr">Bitte geben Sie Ihre Teamnummer an: </label><input id="tnr" type="number" />
+               <label for="tnr">Bitte geben Sie Ihre Teamnummer an: </label><input name="tnr" id="tnr" type="number" />
              </form>  
-             <button id="Anmeldung">Anmelden</button>
-             <button id="Abbruch">Abbrechen</button>
+            <button id="Anmeldung">Anmelden</button>
         </dialog>
 
         <div id="div1">

@@ -1,18 +1,26 @@
-function start()
+function startPupils()
 {
     dialog = document.getElementById('dialog');
     Anmeldung = document.getElementById("Anmeldung");
-    Abbruch = document.getElementById("Abbruch");
     Anmeldung.addEventListener('click',showTeam);
-    Abbruch.addEventListener('click',schliesseFenster);
+    params = getParams();
 
-    if(sessionStorage.getItem('team') != null){
+    if(params != null)
+    {
+        document.getElementById("tnr").value = parseInt(Object.values(params)[0], 10);
+        this.showTeam();
+
+    }
+    
+    if(sessionStorage.getItem('team') != null)
+    {
         show("div".concat(sessionStorage.getItem('team')));
         schliesseFenster();
     }
 }
 
-function show(id){
+function show(id)
+{
 
     document.getElementById(id).style.display = "inline";
 
@@ -20,37 +28,29 @@ function show(id){
 
 function showTeam()
 {
-
     var nr = document.getElementById("tnr").value;
     document.getElementById("div".concat(nr)).style.display = "inline";
     dialog.close();
     sessionStorage.setItem('team', nr);
-
 }
 
-function schliesseFenster(){
+function schliesseFenster()
+{
     dialog.close();
 }
 
-function beamerShow(){
-    
-    var a = document.createElement("iframe");
-    var b = document.createElement("iframe");
-    var c = document.createElement("iframe");
-    var d = document.createElement("iframe");
-    var e = document.createElement("iframe");
-    var f = document.createElement("iframe");
-    var g = document.createElement("iframe");
-    var h = document.createElement("iframe");
+function getParams() 
+{
 
-    a.src = "pupils.html";
-    b.src = "pupils.html";
-    c.src = "pupils.html";
-    d.src = "pupils.html";
-    e.src = "pupils.html";
-    f.src = "pupils.html";
-    g.src = "pupils.html";
-    h.src = "pupils.html";
+    var params = {},
+        pairs = document.URL.split('?')
+               .pop()
+               .split('&');
 
-    this.appendChild(a,b,c,d,e,f,g,h);
+    for (var i = 0, p; i < pairs.length; i++) {
+           p = pairs[i].split('=');
+           params[ p[0] ] =  p[1];
+    }     
+
+    return params;
 }
