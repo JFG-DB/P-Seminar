@@ -54,3 +54,14 @@ function getParams()
 
     return params;
 }
+
+function setIframeList(){
+    for(var i = 0; i < 8; i++){
+        document.getElementsByTagName("IFRAME")[i].style.width = "100%";
+    }
+}
+function setIframeGrid(){
+    for(var i = 0; i < 8; i++){
+        document.getElementsByTagName("IFRAME")[i].style.width = "100%";
+    }
+}

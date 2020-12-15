@@ -16,13 +16,24 @@
         <dialog open id="dialog">
             <h2>Anmeldung</h2>
             <form method="post" action="javascript:showTeam()">
-               <label for="tnr">Bitte geben Sie Ihre Teamnummer an: </label><input name="tnr" id="tnr" type="number" />
+               <label for="tnr">Bitte geben Sie Ihre Teamnummer an: </label>
+               <select name="tnr" id="tnr">
+                   <option value="1">Team 1</option>
+                   <option value="2">Team 2</option>
+                   <option value="3">Team 3</option>
+                   <option value="4">Team 4</option>
+                   <option value="5">Team 5</option>
+                   <option value="6">Team 6</option>
+                   <option value="7">Team 7</option>
+                   <option value="8">Team 8</option>
+               </select>
              </form>  
             <button id="Anmeldung">Anmelden</button>
         </dialog>
 
         <div id="div1">
             <h1>Team 1</h1>
+            <p>Hallo ich bin Team 1</p>
         </div>
 
         <div id="div2">

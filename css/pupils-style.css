@@ -11,3 +11,8 @@ body{
     overflow: hidden;
 
 }
+
+p{
+    padding-top: 200px;
+    padding-bottom: 200px;
+}
