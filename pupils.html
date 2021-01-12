@@ -8,6 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/pupils-style.css">
         <script type="text/javascript" src="js/script.js"></script>
+        <script type="text/javascript" src="js/canvasjs.min.js"></script>
 
     </head>
 
@@ -31,36 +32,53 @@
             <button id="Anmeldung">Anmelden</button>
         </dialog>
 
-        <div id="div1">
+        <div class="teamContainer" id="tc1">
             <h1>Team 1</h1>
-            <p>Hallo ich bin Team 1</p>
+            <div class="inputContainer" id="ec1" >
+                <form method="post" action="javascript:">
+                    <label for="versuch">Bitte wählen Sie Ihren Versuch aus: </label>
+                    <select name="versuch" id="versuch">
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                    </select>
+                </form>
+                <form>
+                    <!--Hier sollten dann per JS die Eingabemöglichkeiten der Versuche erscheinen-->
+                </form>
+            </div>
+            <div class="versuchsContainer" id="vc1">
+                <div class="tableContainer" id="tbc1"></div>
+                <div class="chartContainer" id="cc1" ></div>
+            </div>
         </div>
 
-        <div id="div2">
+        <div class="teamContainer" id="tc2">
             <h1>Team 2</h1>
         </div>
 
-        <div id="div3">
+        <div class="teamContainer" id="tc3">
             <h1>Team 3</h1>
         </div>
         
-        <div id="div4">
+        <div class="teamContainer" id="tc4">
             <h1>Team 4</h1>
         </div>
 
-        <div id="div5">
+        <div class="teamContainer" id="tc5">
             <h1>Team 5</h1>
         </div>
 
-        <div id="div6">
+        <div class="teamContainer" id="tc6">
             <h1>Team 6</h1>
         </div>
 
-        <div id="div7">
+        <div class="teamContainer" id="tc7">
             <h1>Team 7</h1>
         </div>
 
-        <div id="div8">
+        <div class="teamContainer" id="tc8">
             <h1>Team 8</h1>
         </div>
         

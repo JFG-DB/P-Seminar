@@ -1,18 +1,14 @@
-div{
-
+.teamContainer{
     padding-top: 200px;
     padding-bottom: 200px;
     display: none;
-
 }
 
 body{
-
-    overflow: hidden;
-
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 p{
-    padding-top: 200px;
-    padding-bottom: 200px;
+
 }
