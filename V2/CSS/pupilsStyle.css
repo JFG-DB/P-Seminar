@@ -1,0 +1,53 @@
+body{
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.teamContainer{
+    display: none;
+}
+
+.flexbox-container{
+    /*background-color: midnightblue;*/
+    display:flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: stretch;
+    border: solid 3px black;
+    border-radius: 5px;
+}
+.flexbox{
+    border: solid 2px black;
+    /*border-radius: 5px;
+    margin: 5px;*/
+    padding: 10px;
+    /*width: 100%;
+    max-width: 33%;*/
+    text-align: center;
+}
+
+#flxOne{
+    flex-grow: 1;
+}
+
+#flxTwo{
+    flex-grow: 8;
+    font-size: 200%;
+    
+}
+
+#flxTre{
+    flex-grow: 1;
+    max-width: 10%;
+}
+#zahnrad{
+    max-width: 50%;
+}
+
+#versuch{
+    font-size: 90%;
+}
+
+#versuchSubmit{
+    font-size: 90%;
+}

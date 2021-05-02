@@ -6,9 +6,10 @@
 
         <title>Pupils</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8"/>
         <link rel="stylesheet" href="css/pupils-style.css">
         <script type="text/javascript" src="js/script.js"></script>
-        <script type="text/javascript" src="js/canvasjs.min.js"></script>
+        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>-->
 
     </head>
 
@@ -35,7 +36,7 @@
         <div class="teamContainer" id="tc1">
             <h1>Team 1</h1>
             <div class="inputContainer" id="ec1" >
-                <form method="post" action="javascript:">
+                <form method="post" action="javascript:" style="display: inline;">
                     <label for="versuch">Bitte wählen Sie Ihren Versuch aus: </label>
                     <select name="versuch" id="versuch">
                         <option value=""></option>
@@ -50,7 +51,10 @@
             </div>
             <div class="versuchsContainer" id="vc1">
                 <div class="tableContainer" id="tbc1"></div>
-                <div class="chartContainer" id="cc1" ></div>
+                <div class="chartContainer" id="cc1" >
+                    <canvas id="myChart" width="400" height="400"></canvas>
+                    <script>var ctx = document.getElementById('myChart').getContext('2d');drawChart();</script>
+                </div>
             </div>
         </div>
 

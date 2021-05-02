@@ -7,13 +7,19 @@ function startPupils()
 
     document.getElementById("tnr").value = parseInt(Object.values(params0)[0], 10);
     this.showTeam();
-}
-
-function showTeam()
-{
-    var nr = document.getElementById("tnr").value;
-    document.getElementById('tc'.concat(nr)).style.display = "inline";
-    dialog.close();
+    
+    if(Object.values(params0)[1] == undefined)
+    {
+        addURLparam("&flxcon=flex");
+        console.log("Hello");
+    }else{
+        for(i = 0; i < 8; i++)
+        {
+            document.getElementsByClassName("flexbox-container")[i].style.display = String(Object.values(params0)[1]);
+        }
+    }
+    document.getElementById('versuch').value = String(Object.values(params0)[2]);
+    
 }
 
 function getParams()
@@ -28,10 +34,31 @@ function getParams()
     return params;
 }
 
+function addURLparam(param)
+{
+    open(document.URL + param, "_parent");
+}
+
+function showTeam()
+{
+    var nr = document.getElementById("tnr").value;
+    document.getElementById('tc'.concat(nr)).style.display = "inline";
+    dialog.close();
+}
+
 function team()
 {
-    open(document.URL + "?tnr=" + document.getElementById('tnr').value, "_parent");
+    addURLparam("?tnr=" + document.getElementById('tnr').value);
     dialog.close();
+}
+
+function showAttempt()
+{
+    m = document.getElementById('versuch').value;
+    if(Object.values(params0)[2] == undefined){
+        addURLparam("&attempt=" + m);
+    }
+    document.getElementById('versuch').value = m;
 }
 
 function drawChart()
@@ -79,9 +106,4 @@ function drawChart()
         }
     }
 });
-}
-
-function showAttempt()
-{
-    
 }

@@ -4,6 +4,10 @@
     display: none;
 }
 
+h1{
+    display: inline;
+}
+
 body{
     overflow-x: hidden;
     overflow-y: auto;
@@ -11,4 +15,9 @@ body{
 
 p{
 
+}
+
+#myChart {
+    max-width: 800px;
+    max-height: 800px;
 }
