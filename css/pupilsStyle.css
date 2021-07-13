@@ -1,0 +1,103 @@
+body{
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: darkgrey;
+}
+
+table, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+table {
+    font-size: 200%;
+    width: 100%;
+}
+
+.teamContainer{
+    display: none;
+}
+
+.flexbox-container{
+    /*background-color: midnightblue;*/
+    display:flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: stretch;
+    border: solid 3px black;
+    border-radius: 5px;
+}
+
+.flexbox{
+    border: solid 2px black;
+    /*border-radius: 5px;
+    margin: 5px;*/
+    padding: 10px;
+    /*width: 100%;
+    max-width: 33%;*/
+    text-align: center;
+}
+
+.versuchsContainer {
+    margin: 5px;
+}
+
+.tableContainer {
+    overflow-x: auto;
+}
+
+.loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -15px 0 0 -15px;
+    height: 100px;
+    width: 100px;
+    border: 10px solid #ddd;
+    border-left-color: #009688;
+    border-radius: 100px; /* border-radius: 50% */
+    -webkit-animation: animation-rotate 950ms cubic-bezier(.64,2,.56,.6) infinite;
+    animation: animation-rotate 950ms cubic-bezier(.64,2,.56,.6) infinite;
+    }
+  
+@-webkit-keyframes animation-rotate {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+@keyframes animation-rotate {
+    100% {
+        -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+    }
+}
+
+#flxOne{
+    flex-grow: 1;
+}
+
+#flxTwo{
+    flex-grow: 8;
+    font-size: 200%;
+    
+}
+
+#flxTre{
+    flex-grow: 1;
+    max-width: 10%;
+}
+#zahnrad{
+    max-width: 50%;
+}
+
+#versuch{
+    font-size: 90%;
+}
+
+#versuchSubmit{
+    font-size: 90%;
+}
+
+#startButton{
+    margin: 5px;
+}

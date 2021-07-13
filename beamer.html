@@ -5,22 +5,55 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Beamer</title>
-        <link rel="stylesheet" href="css/beamer-style.css">
-        <script type="text/javascript" src="js/script.js"></script>
+        <link rel="stylesheet" href="CSS/beamerstyle.css">
+        <script type="text/javascript" src="JS/beamerScript.js"></script>
+        <script type="text/javascript" src="JS/watch.js"></script>
     </head>
 
-    <body>
-        <div class="grid-iframe">
-        <iframe src="pupils.html?tnr=1" id="t1"></iframe>
-        <iframe src="pupils.html?tnr=2" id="t2"></iframe>
-        <iframe src="pupils.html?tnr=3" id="t3"></iframe>
-        <iframe src="pupils.html?tnr=4" id="t4"></iframe>
-        <iframe src="pupils.html?tnr=5" id="t5"></iframe>
-        <iframe src="pupils.html?tnr=6" id="t6"></iframe>
-        <iframe src="pupils.html?tnr=7" id="t7"></iframe>
-        <iframe src="pupils.html?tnr=8" id="t8"></iframe>        
+    <body onload="startBeamer()">
+        <div id="container">
+            <div id="flexbox-container">
+                <div class="flexbox"><iframe src="pupils.html?tnr=1&flxcon=none" id="t1"></iframe></div>
+                <div class="flexbox"><iframe src="pupils.html?tnr=2&flxcon=none" id="t2"></iframe></div>
+                <div class="flexbox"><iframe src="pupils.html?tnr=3&flxcon=none" id="t3"></iframe></div>
+                <div class="flexbox"><iframe src="pupils.html?tnr=4&flxcon=none" id="t4"></iframe></div>
+                <div class="flexbox"><iframe src="pupils.html?tnr=5&flxcon=none" id="t5"></iframe></div>
+                <div class="flexbox"><iframe src="pupils.html?tnr=6&flxcon=none" id="t6"></iframe></div>
+                <div class="flexbox"><iframe src="pupils.html?tnr=7&flxcon=none" id="t7"></iframe></div>
+                <div class="flexbox"><iframe src="pupils.html?tnr=8&flxcon=none" id="t8"></iframe></div>
+            </div>
+            <div id="flexbox-container0">
+                <div id="timer">
+                    <time id="time">00:00</time>
+                    <div>
+                        <form action="javascript:startTimer()">
+                            <label for="timeInput">Bitte geben Sie die gewünschte Zeit <br> für den Timer in Minuten an:</label>
+                            <input type="number" max="90" min="0" value="15" id="timeInput" name="timeInput">
+                            <input id="submit" type="submit" value="Timer starten">
+                        </form>
+                        <button id="pause">Pause</button>
+                        <button id="fortsetzen">Fortsetzen</button>
+                        <button id="reset">Reset</button>
+                    </div>
+                </div>
+                <div>
+                    <form method="post" action="javascript:showAttempt()" style="display: inline;">
+                        <label for="versuch">Bitte wählen Sie Ihren Versuch aus: </label>
+                        <select name="versuch" id="versuch">
+                            <option value="leistung">Leistung</option>
+                            <option value="bewegung">Bewegung</option>
+                            <option value="spannung">Spannung</option>
+                            <option value="temperatur">Temperatur</option>
+                        </select>
+                        <input id="versuchSubmit" type="submit" value="Auswählen">
+                    </form>
+                </div>
+            </div>
+            <div>
+                <button id="close">>></button>
+            </div>
         </div>
-       
+               
     </body>
 
 </html>
