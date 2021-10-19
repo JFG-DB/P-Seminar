@@ -18,3 +18,4 @@ C --> Python --> SQL --> PHP --> JS --> HTML
 https://o7planning.org/de/10517/arbeiten-mit-mysql-datenbank-unter-verwendung-von-csharp
 https://www.mysqltutorial.org/
 https://canvasjs.com/html5-javascript-line-chart/
+https://create.arduino.cc/projecthub/iasonas-christoulakis/how-to-make-an-arduino-ohm-meter-90fda8

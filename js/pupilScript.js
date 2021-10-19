@@ -98,9 +98,15 @@ function drawTable()
             yy = document.createElement("tr");
             z = document.createElement("td");
             zz = document.createElement("td");
-            z.innerHTML = "&#916;";
-            z.appendChild(document.createTextNode("Strecke"));
-            zz.appendChild(document.createTextNode("Zeit"));
+            if(String(Object.values(params0)[2]) == "ultraschall"){
+                z.innerHTML = "&#916;";
+                z.appendChild(document.createTextNode("s in cm"));
+                zz.appendChild(document.createTextNode("t in s"));
+            }else if(String(Object.values(params0)[2]) == "temperatur"){
+                z.innerHTML = "&#920;";
+                z.appendChild(document.createTextNode(" in °C"));
+                zz.appendChild(document.createTextNode("t in s"));
+            }           
             y.append(z);
             yy.append(zz);
             x.appendChild(yy);
@@ -112,9 +118,19 @@ function drawTable()
                 {
                     z = document.createElement("td");
                     zz = document.createElement("td");
-                    //console.log(i);
-                    z.appendChild(document.createTextNode(myObj[String(Object.values(params0)[2])]/*[i]*/["Wert" + i.toString()] + " cm"));
-                    zz.appendChild(document.createTextNode((i+1)*2/10 + " s"));
+                    if(String(Object.values(params0)[2]) == "ultraschall"){
+                        time = (i+1)*2/10;
+                        z.appendChild(document.createTextNode(myObj[String(Object.values(params0)[2])]/*[i]*/["Wert" + i.toString()]));
+                        if(time % 1 == 0){
+                            zz.appendChild(document.createTextNode(time + ".0"));
+                        }else{
+                            zz.appendChild(document.createTextNode(time));
+                        }
+                    }else if(String(Object.values(params0)[2]) == "temperatur"){
+                        time = i*10;
+                        z.appendChild(document.createTextNode(myObj[String(Object.values(params0)[2])]/*[i]*/["Wert" + i.toString()]));
+                        zz.appendChild(document.createTextNode(time));
+                    }                    
                     y.append(z);
                     yy.append(zz);
                     x.appendChild(yy);

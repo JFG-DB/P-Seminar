@@ -49,20 +49,17 @@
                         </select>
                         <input id="versuchSubmit" type="submit" value="Auswählen">
                     </form>
-                    <form>
-                        <!--Hier sollten dann per JS die Eingabemöglichkeiten der Versuche erscheinen-->
-                    </form>
-            </div>
+                </div>
                 <div class="flexbox" id="flxTre"><img src="Icons/zahnrad.png" id="zahnrad"></div>
             </div>
-    
+
             <div class="versuchsContainer" id="vc1">
                 <div class="newExercise" id="ne1">
                     <form method="post" action="">
                         <input type="submit" name="submit" value="Neuer Versuch" id="startButton"/>
                     </form>
-                    
-                    <?php
+
+                        <?php
                         if ($_SERVER["REQUEST_METHOD"] == "POST")
                         {
                             $handle = fopen("/var/www/P-Seminar-clone/test/test.txt", "w") or die ("Unable to open file");
@@ -70,7 +67,7 @@
                             fwrite($handle, $txt);
                             fclose($handle);
                         }
-                    ?>                    
+                        ?>                    
                 </div>
                 <div class="loading"></div>
                 <div class="tableContainer" id="tbc1">
@@ -257,6 +254,7 @@
                 </div>
             </div>
         </div>
+        
         <div class="teamContainer" id="tc8">
             <div class="flexbox-container">
                 <div class="flexbox" id="flxOne"><h1>Team 8</h1></div>
