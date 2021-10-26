@@ -1,5 +1,7 @@
 function startPupils()
 {
+    document.getElementsByClassName("loading")[0].style.display = "none";
+    
     dialog = document.getElementById('dialog');
     Anmeldung = document.getElementById("Anmeldung");
     Anmeldung.addEventListener('click', team);
@@ -79,7 +81,7 @@ function showAttempt()
     document.getElementById('versuch').value = m;
 }
 
-function drawTable()
+/*function drawTable()
 {
     var b = true;
     var i = 0;
@@ -114,13 +116,13 @@ function drawTable()
             
             while (b) {
                 //console.log(myObj[String(Object.values(params0)[2])]);                
-                if(/*i < 10)*/myObj[String(Object.values(params0)[2])]/*[i]*/["Wert" + i.toString()] != undefined && myObj[String(Object.values(params0)[2])]/*[i]*/["Wert" + i.toString()] != 'null' && myObj[String(Object.values(params0)[2])][i] != 'null' )
+                if(/*i < 10)*//*myObj[String(Object.values(params0)[2])]/*[i]*//*["Wert" + i.toString()] != undefined && myObj[String(Object.values(params0)[2])]/*[i]*//*["Wert" + i.toString()] != 'null' && myObj[String(Object.values(params0)[2])][i] != 'null' )
                 {
                     z = document.createElement("td");
                     zz = document.createElement("td");
                     if(String(Object.values(params0)[2]) == "ultraschall"){
                         time = (i+1)*2/10;
-                        z.appendChild(document.createTextNode(myObj[String(Object.values(params0)[2])]/*[i]*/["Wert" + i.toString()]));
+                        z.appendChild(document.createTextNode(myObj[String(Object.values(params0)[2])]/*[i]*//*["Wert" + i.toString()]));
                         if(time % 1 == 0){
                             zz.appendChild(document.createTextNode(time + ".0"));
                         }else{
@@ -128,7 +130,7 @@ function drawTable()
                         }
                     }else if(String(Object.values(params0)[2]) == "temperatur"){
                         time = i*10;
-                        z.appendChild(document.createTextNode(myObj[String(Object.values(params0)[2])]/*[i]*/["Wert" + i.toString()]));
+                        z.appendChild(document.createTextNode(myObj[String(Object.values(params0)[2])]/*[i]*//*["Wert" + i.toString()]));
                         zz.appendChild(document.createTextNode(time));
                     }                    
                     y.append(z);
@@ -146,7 +148,7 @@ function drawTable()
     };
     xmlhttp.open("GET", "JS/data.json", true);
     xmlhttp.send();
-}
+}*/
 
 function drawChart()
 {

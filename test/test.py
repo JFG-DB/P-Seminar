@@ -5,42 +5,58 @@ import json
 import csv
 #import bluetooth
 from time import sleep
+import mysql.connector
+
+mydb = mysql.connector.connect(
+    host="localhost",
+    user="raspberrypi",
+    password="piraspberry",
+    database="test"
+)
 
 while True:
 
     f = open("/var/www/P-Seminar-clone/test/test.txt", "r")
     if f.read() == "yes" :
 
-        bluetoothSerial = serial.Serial( "/dev/rfcomm0", baudrate=9600 )
+
+
+        #bluetoothSerial = serial.Serial( "/dev/rfcomm0", baudrate=9600 )
         #devices = bluetooth.discover_devices(lookup_names = True, lookup_class = True)
 
         data = {}
         ultra = {}
-        spann = {}
+#        spann = {}
         temp = {}
-        i = True
-        j = 0
-        b = 0
+#        i = True
+#        j = 0
+#        b = 0
+
+        mycursor = mydb.cursor()
+
+        sql = "SELECT ,"
+        test = ""
+        mycursor.execute(sql, test)
 
 #        for addr in devices:
 #            if addr == "98:D3:31:F5:C6:E0":
 #                i = True
 #            else:
 #                i = False
-        while i:
+#        while i:
         #for b in range(10):
-            
-            helpt = int(bluetoothSerial.readline().split(",")[0])
-            if helpt > 2:
-                ultra["Wert" + str(b)] = str(helpt)
-                b = b + 1
-            elif helpt < 3:
-                ultra["Wert" + str(b)] = str(helpt)
-                b = b + 1
-                if j > 20:
-                    i = False
-
-            j = j + 1
+#            
+#            helpt = int(bluetoothSerial.readline().split(",")[0])
+#            if helpt > 2:
+#                ultra["Wert" + str(b)] = str(helpt)
+#                b = b + 1
+#            elif helpt < 3:
+#                ultra["Wert" + str(b)] = str(helpt)
+#                b = b + 1
+#                if j > 20:
+#                    i = False
+#
+#            j = j + 1
 #            helpOans = help.split(",")
 
 #            if (help < 1 or  help > -1) and j < 4:
@@ -63,7 +79,7 @@ while True:
         #        helpt = bluetootSerial.readline().split(",")
         #        temp["Wert" + str(i)] = helpt[0]
         data["ultraschall"] = ultra
-        data["spannung"] = spann
+#        data["spannung"] = spann
         data["temperatur"] = temp
         with open('/var/www/P-Seminar-clone/JS/data.json', 'w') as outfile:
             json.dump(data, outfile)

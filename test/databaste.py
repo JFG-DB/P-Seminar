@@ -2,15 +2,15 @@
 
 import mysql.connector
 
-mydb = mysql.connector.connect(
-    host="localhost",
-    user="raspberrypi",
-    password="piraspberry"
-)
+#mydb = mysql.connector.connect(
+#    host="localhost",
+#    user="raspberrypi",
+#    password="piraspberry"
+#)
 
-mycursor = mysql.cursor()
+#mycursor = mydb.cursor()
 
-mycursor.execute("CREATE DATABASE test")
+#mycursor.execute("CREATE DATABASE test")
 
 mydb = mysql.connector.connect(
     host="localhost",
@@ -19,24 +19,24 @@ mydb = mysql.connector.connect(
     database="test"
 )
 
-mycursor = mysql.cursor()
+mycursor = mydb.cursor()
 
-mycursor = mysql.cursor("CREATE TABLE values (id INT AUTO_INCREMENT PRIMARY KEY, time INT TIMESTAMP, value INT, team INT, test INT)")
-mycursor = mysql.cursor("CREATE TABLE teams (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255))")
-mycursor = mysql.cursor("CREATE TABLE tests (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255))")
+mycursor.execute("CREATE TABLE valuet (id INT AUTO_INCREMENT PRIMARY KEY, value INT(255), team INT(255), test INT(255), time TIMESTAMP);")
+mycursor.execute("CREATE TABLE teams (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255));")
+mycursor.execute("CREATE TABLE tests (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255));")
 
-for i in range(10):
-    sql = "INSERT INTO teams (name) VALUES (%s)"
-    val = ("Team"+i)
-    mycursor.execute(sql, val)
+for i in range(8):
+    sql = "INSERT INTO teams (name) VALUES (%s);"
+    name = ("Team"+ str(i),)
+    mycursor.execute(sql, name)
     mydb.commit()
 
-sql = "INSERT INTO tests (name) VALUES (%s)"
-val = ("ultraschall")
+sql = "INSERT INTO tests (name) VALUES (%s);"
+val = ("ultraschall",)
 mycursor.execute(sql, val)
 mydb.commit()
 
-sql = "INSERT INTO tests (name) VALUES (%s)"
-val = ("temperature")
+sql = "INSERT INTO tests (name) VALUES (%s);"
+val = ("temperature",)
 mycursor.execute(sql, val)
 mydb.commit()

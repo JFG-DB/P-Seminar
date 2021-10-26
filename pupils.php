@@ -39,12 +39,13 @@
             <div class="flexbox-container">
                 <div class="flexbox" id="flxOne"><h1>Team 1</h1></div>
                 <div class="flexbox" id="flxTwo">
+                    <!--<form method="post" action="javascript:showAttempt()" style="display: inline;">-->
                     <form method="post" action="javascript:showAttempt()" style="display: inline;">
                         <label for="versuch">Bitte wählen Sie Ihren Versuch aus: </label>
                         <select name="versuch" id="versuch">
-                            <option value="leistung">Leistung</option>
+                            <!--<option value="leistung">Leistung</option>-->
                             <option value="ultraschall">Schiefe Ebene</option>
-                            <option value="spannung">Spannung</option>
+                            <!--<option value="spannung">Spannung</option>-->
                             <option value="temperatur">Temperatur</option>
                         </select>
                         <input id="versuchSubmit" type="submit" value="Auswählen">
@@ -58,21 +59,98 @@
                     <form method="post" action="">
                         <input type="submit" name="submit" value="Neuer Versuch" id="startButton"/>
                     </form>
-
+                        
                         <?php
-                        if ($_SERVER["REQUEST_METHOD"] == "POST")
-                        {
-                            $handle = fopen("/var/www/P-Seminar-clone/test/test.txt", "w") or die ("Unable to open file");
-                            $txt = "yes";
-                            fwrite($handle, $txt);
-                            fclose($handle);
-                        }
-                        ?>                    
+                        //if ($_SERVER["REQUEST_METHOD"] == "POST")
+                        //{
+                        //    $handle = fopen("/var/www/P-Seminar-clone/test/test.txt", "w") or die ("Unable to open file");
+                        //    $txt = "yes";
+                        //    fwrite($handle, $txt);
+                        //    fclose($handle);
+                        //}
+                        ?>                   
                 </div>
                 <div class="loading"></div>
                 <div class="tableContainer" id="tbc1">
-                    <script>setTimeout(drawTable, 10000); setTimeout(function () {document.getElementsByClassName("loading")[0].style.display = "none";}, 10000)</script>
-                    <a href="data.csv" download>Hier klicken zum Download von der CSV Datei</a>
+                    <?php
+                        if ($_SERVER["REQUEST_METHOD"] == "POST")
+                        {
+                            $servername = "localhost";
+                            $username = "raspberrypi";
+                            $password = "piraspberry";
+                            $dbname = "test";
+                    
+                            $conn = new mysqli($servername, $username, $password, $dbname);
+
+                            if ($conn->connect_error) {
+                                die("Connection failed: " . $conn->connect_error);
+                              }
+                              //echo "Connected successfully";
+
+                            if ($_GET["attempt"] == "ultraschall")
+                            {                           
+                                $sql = "SELECT value FROM valuet WHERE team=1 AND test=1 ORDER BY time LIMIT 20";
+                                $result = $conn->query($sql);     
+                                //echo $result;
+                                //echo "Hello";
+                                
+                                if($result->num_rows > 0)
+                                {
+                                    echo "<table>"; 
+                                    echo "<tr>";
+                                    echo "<td>&#916;t in s</td>";
+                                    for( $i = 0; $i < $result->num_rows; $i++)
+                                    {
+                                        $j = ($i+1)*2/10;
+                                        if((($i+1) % 5) == 0)
+                                        {
+                                            echo "<td>".$j.".0</td>";
+                                        }else{
+                                            echo "<td>".$j."</td>";
+                                        }
+                                        
+                                    }
+                                    echo "</tr><tr>"; 
+                                    echo "<td>s in cm</td>";                              
+                                    while($row = $result->fetch_assoc())
+                                    {
+                                        echo "<td>".$row["value"]."</td>";
+                                    }
+                                    echo "</tr>";
+                                    echo "</table>";
+                                }
+                            }else if($_GET["attempt"] == "temperature")
+                            {
+                                $sql = "SELECT value FROM valuet WHERE team=1 AND test=2 ORDER BY time LIMIT 20";
+                                $result = $conn->query($sql);
+                                //echo $result;
+                                //echo "World";
+                                
+                                if($result->num_rows > 0)
+                                {
+                                    echo "<table>"; 
+                                    echo "<tr>";
+                                    echo "<td>t in s</td>";
+                                    for( $i = 0; $i < $result->num_rows; $i++)
+                                    {
+                                        $j = $i*10;
+                                        echo "<td>$j</td>";
+                                    }
+                                    echo "</tr<tr>"; 
+                                    echo "<td>&#920; in °C</td>";                              
+                                    while($row = $result->fetch_assoc())
+                                    {
+                                        echo "<td>".$row["value"]."</td>";
+                                    }
+                                    echo "</tr>";
+                                    echo "</table>";
+                                }
+                            }                            
+                            $conn->close();
+                        }
+                        ?>
+                    <!--<script>setTimeout(drawTable, 10000); setTimeout(function () {document.getElementsByClassName("loading")[0].style.display = "none";}, 10000)</script>-->
+                    <!--<a href="data.csv" download>Hier klicken zum Download von der CSV Datei</a>-->
                 </div>
                 <div class="chartContainer" id="cc1" >
                     <canvas id="myChart" width="400" height="400"></canvas>

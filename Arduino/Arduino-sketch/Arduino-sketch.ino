@@ -3,11 +3,11 @@
 #include <DallasTemperature.h>
 #include <elapsedMillis.h>
 
-#define ONE_WIRE_BUS 4
+#define ONE_WIRE_BUS 2
 #define RxD 0
 #define TxD 1
 #define PIN_TRIGGER 7
-#define PIN_ECHO 9
+#define PIN_ECHO 6
 
 const int SENSOR_MAX_RANGE = 300;
 unsigned long duration;
@@ -67,7 +67,8 @@ void loop()
   if(temp >= 10000){
     temp = 0;
     sensors.requestTemperatures();
-    Serial.println ("Team1;t;" + String(sensors.getTempCByIndex(0)) + ",");                                                       
+    Serial.println(sensors.getTempCByIndex(0));
+    ArdRasSerial.println ("Team1;t;" + String(sensors.getTempCByIndex(0)) + ",");                                                       
     //delay (200);
   }
 }
